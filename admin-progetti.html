@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gestione progetti – Live Impianti</title>
+  <link rel="stylesheet" href="admin-progetti.css" />
+</head>
+<body>
+
+  <div id="loginScreen" class="login">
+    <div class="login__box">
+      <img src="images/logo.svg" alt="Live Impianti" class="login__logo" />
+      <h1>Pannello progetti</h1>
+      <p>Inserisci la password per gestire il catalogo.</p>
+      <input type="password" id="loginPassword" placeholder="Password" autocomplete="current-password" />
+      <button type="button" id="loginBtn" class="btn btn--primary">Entra</button>
+      <p id="loginError" class="login__error" hidden>Password non corretta.</p>
+    </div>
+  </div>
+
+  <div id="app" class="app" hidden>
+    <header class="app__header">
+      <div>
+        <h1>Gestione progetti</h1>
+        <p class="muted">Aggiungi o modifica i lavori. Poi scarica i file e caricali sul sito.</p>
+      </div>
+      <div class="app__header-actions">
+        <a href="index.html" class="btn btn--ghost" target="_blank">Vedi sito</a>
+        <button type="button" id="exportBtn" class="btn btn--primary">Scarica file per il sito</button>
+      </div>
+    </header>
+
+    <section class="help help--netlify">
+      <h2>Pubblicare su Netlify</h2>
+      <ol>
+        <li><strong>Foto:</strong> mettete il JPG nella cartella <code>images/</code> del progetto (sul computer).</li>
+        <li><strong>Scheda:</strong> compilate il modulo → «Salva progetto».</li>
+        <li><strong>File:</strong> «Scarica file per il sito» → sostituite <code>progetti.json</code> e <code>progetti-data.js</code> nella cartella del sito.</li>
+        <li><strong>Online:</strong> se usate <strong>GitHub</strong>: commit + push → Netlify aggiorna da solo. Altrimenti inviate i file a chi gestisce il sito.</li>
+      </ol>
+      <p class="muted">Il sito è su Netlify (non FTP). Guida completa: file <code>ISTRUZIONI-GESTIONE-PROGETTI.txt</code></p>
+    </section>
+
+    <div class="layout">
+      <aside class="sidebar">
+        <label class="field">
+          <span>Cerca</span>
+          <input type="search" id="searchInput" placeholder="Titolo o città…" />
+        </label>
+        <label class="field">
+          <span>Categoria</span>
+          <select id="filterCat">
+            <option value="">Tutte</option>
+            <option value="ville">Ville full electric</option>
+            <option value="radianti">Sistemi radianti</option>
+            <option value="fotovoltaico">Fotovoltaico</option>
+            <option value="centrali">Centrali termiche</option>
+          </select>
+        </label>
+        <button type="button" id="newBtn" class="btn btn--block">+ Nuovo progetto</button>
+        <ul id="projectList" class="project-list"></ul>
+      </aside>
+
+      <main class="form-panel">
+        <form id="projectForm">
+          <input type="hidden" id="editIndex" value="" />
+
+          <div class="form-grid">
+            <label class="field field--full">
+              <span>ID progetto <small>(senza spazi; es. villa-roma-nord)</small></span>
+              <input type="text" id="id" required pattern="[a-z0-9\-]+" />
+            </label>
+
+            <label class="field">
+              <span>Categoria</span>
+              <select id="categoria" required>
+                <option value="ville">Ville full electric</option>
+                <option value="radianti">Sistemi radianti</option>
+                <option value="fotovoltaico">Fotovoltaico</option>
+                <option value="centrali">Centrali termiche</option>
+              </select>
+            </label>
+
+            <label class="field">
+              <span>Ordine nella categoria</span>
+              <input type="number" id="ordine" min="1" value="1" />
+            </label>
+
+            <label class="field">
+              <span>Etichetta <small>(es. Villa, 317 kW, Hotel)</small></span>
+              <input type="text" id="label" required />
+            </label>
+
+            <label class="field">
+              <span>Stile etichetta Home</span>
+              <select id="labelStile">
+                <option value="">Normale</option>
+                <option value="kw">Potenza (kW)</option>
+                <option value="pub">Pubblico</option>
+              </select>
+            </label>
+
+            <label class="field field--full">
+              <span>Percorso foto <small>(dopo upload in images/)</small></span>
+              <input type="text" id="immagine" placeholder="images/nome-foto.jpg" required />
+            </label>
+
+            <label class="field field--full">
+              <span>Titolo breve (pagina Progetti)</span>
+              <input type="text" id="titolo" required />
+            </label>
+
+            <label class="field field--full">
+              <span>Titolo completo (dettaglio pop-up)</span>
+              <input type="text" id="titoloCompleto" required />
+            </label>
+
+            <label class="field field--full">
+              <span>Titolo Home <small>(solo se «Mostra in Home»)</small></span>
+              <input type="text" id="titoloHome" />
+            </label>
+
+            <label class="field field--full">
+              <span>Località</span>
+              <input type="text" id="location" placeholder="Roma, Fiumicino…" required />
+            </label>
+
+            <label class="field field--full">
+              <span>Descrizione breve (anteprima card)</span>
+              <textarea id="descrizione" rows="3" required></textarea>
+            </label>
+
+            <label class="field field--full">
+              <span>Descrizione completa (pop-up)</span>
+              <textarea id="descrizioneCompleta" rows="5" required></textarea>
+            </label>
+
+            <label class="field field--full">
+              <span>Impianti realizzati <small>(uno per riga)</small></span>
+              <textarea id="features" rows="5" placeholder="Pompa di calore&#10;Radiante a pavimento"></textarea>
+            </label>
+
+            <label class="field field--full">
+              <span>Tag in evidenza <small>(uno per riga, max 3 visibili)</small></span>
+              <textarea id="tags" rows="3" placeholder="Pompa di calore&#10;Fotovoltaico 6 kW"></textarea>
+            </label>
+
+            <label class="field field--check">
+              <input type="checkbox" id="showOnHome" />
+              <span>Mostra in Home (anteprima)</span>
+            </label>
+
+            <label class="field field--check">
+              <input type="checkbox" id="featured" />
+              <span>Progetto speciale (badge)</span>
+            </label>
+          </div>
+
+          <div class="form-actions">
+            <button type="submit" class="btn btn--primary">Salva progetto</button>
+            <button type="button" id="deleteBtn" class="btn btn--danger" hidden>Elimina</button>
+            <button type="button" id="resetBtn" class="btn btn--ghost">Annulla</button>
+          </div>
+          <p id="formMessage" class="form-message" hidden></p>
+        </form>
+
+        <div class="preview" id="previewBox" hidden>
+          <h3>Anteprima foto</h3>
+          <img id="previewImg" alt="" />
+        </div>
+      </main>
+    </div>
+
+    <section class="import">
+      <h2>Backup / ripristino</h2>
+      <p class="muted">Potete scaricare una copia di sicurezza o caricare un file <code>progetti.json</code> salvato in precedenza.</p>
+      <label class="btn btn--ghost">
+        Importa progetti.json
+        <input type="file" id="importFile" accept=".json,application/json" hidden />
+      </label>
+    </section>
+  </div>
+
+  <script src="progetti-data.js"></script>
+  <script src="admin-progetti.js"></script>
+</body>
+</html>

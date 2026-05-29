@@ -1,0 +1,28 @@
+═══════════════════════════════════════════════════════════════
+  LIVE IMPIANTI – Gestione progetti (NETLIFY)
+═══════════════════════════════════════════════════════════════
+
+PANNELLO PRINCIPALE (consigliato):
+  https://www.liveimpianti.it/admin/
+
+1. Login con email invitata (Netlify Identity)
+2. Catalogo progetti → Tutti i progetti
+3. Aggiungere/modificare: foto (upload), categoria, testi
+4. Salva → il sito si aggiorna da solo in 1–2 minuti
+
+Il gestore del sito deve configurare una volta: GitHub + Netlify Identity.
+Vedi file SETUP-NETLIFY-ADMIN.md
+
+
+BACKUP (senza /admin/):
+  admin-progetti.html — scarica file e push manuale su GitHub
+
+
+═══════════════════════════════════════════════════════════════
+  SUL SITO PUBBLICO
+═══════════════════════════════════════════════════════════════
+
+• Home: carosello per categoria + dettaglio istantaneo (frecce nel pop-up)
+• Pagina Progetti: catalogo completo
+• Tutti i progetti della categoria compaiono nel carosello Home
+

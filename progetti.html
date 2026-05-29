@@ -1,0 +1,466 @@
+﻿<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>I Nostri Progetti – Live Impianti S.r.l.</title>
+  <meta name="description" content="Portfolio dei progetti realizzati da Live Impianti: ville full electric, sistemi radianti, fotovoltaico industriale e centrali termiche." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand:   { DEFAULT: '#00a79e', dark: '#007a73', light: '#e6f7f6', mid: '#00c4b9' },
+            accent:  { DEFAULT: '#cbd000', dark: '#a0a200', light: '#f6f9cc' },
+            dark:    { DEFAULT: '#0f1923', 2: '#1c2a35' },
+          },
+          fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] },
+          boxShadow: {
+            card: '0 4px 24px rgba(0,0,0,.09)',
+            'card-hover': '0 12px 40px rgba(0,0,0,.16)',
+          },
+          transitionDuration: { DEFAULT: '250ms' },
+        }
+      }
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    /* ── Card hide/show animation ── */
+    .proj-card { transition: opacity .3s ease, transform .3s ease; }
+    .proj-card.hidden-card { opacity: 0; transform: scale(.96) translateY(8px); pointer-events: none; height: 0; overflow: hidden; margin: 0; padding: 0; }
+
+    /* ── Filter button active state ── */
+    .filter-btn { transition: all .22s ease; }
+    .filter-btn.active {
+      background: #00a79e;
+      color: #fff;
+      border-color: #00a79e;
+      box-shadow: 0 4px 16px rgba(0,167,158,.3);
+    }
+
+    /* ── Image zoom on hover ── */
+    .card-img-wrap { overflow: hidden; }
+    .card-img-wrap img {
+      transition: transform .5s cubic-bezier(.4,0,.2,1);
+      object-position: 50% 45%;
+      filter: contrast(1.05) saturate(1.04) brightness(1.03);
+      image-rendering: -webkit-optimize-contrast;
+      backface-visibility: hidden;
+      transform: translateZ(0);
+    }
+    .proj-card:hover .card-img-wrap img { transform: scale(1.06); }
+
+    /* ── Lightbox ── */
+    #lightbox { display:none; }
+    #lightbox.open { display:flex; }
+
+    /* ── Tag colors per category ── */
+    .tag-ville    { background:#e6f7f6; color:#007a73; }
+    .tag-radianti { background:#f6f9cc; color:#a0a200; }
+    .tag-foto     { background:#e6f7f6; color:#007a73; }
+    .tag-centrali { background:#f0f0f8; color:#3a3a7a; }
+
+    /* ── Feature list ── */
+    .feat-item::before { content:'✓'; color:#00a79e; font-weight:700; margin-right:6px; }
+
+    /* ── Sticky header ── */
+    body { scroll-behavior: smooth; }
+    .sticky-nav {
+      backdrop-filter: blur(18px) saturate(160%);
+      -webkit-backdrop-filter: blur(18px) saturate(160%);
+      background: rgba(255,255,255,.18);
+      border-bottom: 1px solid rgba(255,255,255,.35);
+      box-shadow: 0 10px 28px rgba(12, 20, 30, .10);
+    }
+
+    @media (max-width: 768px) {
+      .sticky-nav .max-w-7xl { padding-left: 14px; padding-right: 14px; }
+      .sticky.top-\[65px\] { top: 56px; }
+      #projectGrid { gap: 16px; }
+      .card-img-wrap.h-56 { height: 12.75rem; }
+      #activeTitle { font-size: 1.35rem; line-height: 1.2; }
+      #activeSubtitle { font-size: .84rem; }
+      #lightboxInner { max-height: 94vh; border-radius: 16px; }
+      .filter-btn { padding: .58rem .95rem; font-size: .78rem; }
+    }
+
+    @media (max-width: 420px) {
+      .sticky.top-\[65px\] { top: 54px; }
+      .card-img-wrap.h-56 { height: 12rem; }
+      .filter-btn { padding: .5rem .85rem; font-size: .74rem; }
+    }
+  </style>
+</head>
+<body class="bg-gray-50 font-sans text-dark antialiased">
+
+  <!-- ══════════════ NAVBAR ══════════════ -->
+  <header class="sticky-nav sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between gap-6">
+      <a href="index.html" class="flex items-center gap-3 group">
+        <img src="images/logo.svg" alt="Live Impianti S.r.l." class="h-14 w-auto drop-shadow-[0_2px_10px_rgba(0,0,0,.55)]" />
+      </a>
+      <nav class="hidden md:flex items-center gap-8">
+        <a href="index.html#servizi" class="text-sm font-500 text-gray-500 hover:text-brand transition-colors">Servizi</a>
+        <a href="progetti.html" class="text-sm font-600 text-brand border-b-2 border-brand pb-0.5">Progetti</a>
+        <a href="index.html#perche-noi" class="text-sm font-500 text-gray-500 hover:text-brand transition-colors">Chi siamo</a>
+        <a href="index.html#contatti" class="text-sm font-500 text-gray-500 hover:text-brand transition-colors">Contatti</a>
+      </nav>
+      <a href="index.html#contatti" class="hidden md:inline-flex items-center gap-2 bg-brand text-white text-sm font-600 px-5 py-2.5 rounded-full hover:bg-brand-dark transition-colors shadow-sm">
+        Richiedi preventivo
+      </a>
+      <a href="index.html" class="md:hidden text-sm text-brand font-600">← Home</a>
+    </div>
+  </header>
+
+  <!-- ══════════════ HERO ══════════════ -->
+  <section class="relative bg-dark overflow-hidden py-20 md:py-28">
+    <div class="absolute inset-0">
+      <div class="absolute top-[-120px] right-[-120px] w-[500px] h-[500px] bg-brand rounded-full opacity-[0.07]"></div>
+      <div class="absolute bottom-[-80px] left-[-80px] w-[300px] h-[300px] bg-accent rounded-full opacity-[0.06]"></div>
+    </div>
+    <div class="relative max-w-7xl mx-auto px-6 text-center">
+      <span class="inline-flex items-center gap-2 bg-white/10 border border-white/15 text-white/80 text-xs font-700 uppercase tracking-widest px-4 py-2 rounded-full mb-6">
+        <span class="w-1.5 h-1.5 bg-accent rounded-full animate-pulse"></span>
+        Portfolio
+      </span>
+      <h1 class="text-4xl md:text-5xl lg:text-6xl font-800 text-white leading-tight tracking-tight mb-5">
+        I nostri <span class="text-brand-mid">progetti</span>
+      </h1>
+      <p class="text-white/65 text-lg max-w-2xl mx-auto leading-relaxed">
+        Ogni impianto nasce dall&rsquo;unione tra efficienza, comfort e innovazione.<br class="hidden md:block" />
+        Da ville private a strutture ricettive e impianti industriali,<br class="hidden md:block" />
+        realizziamo soluzioni su misura per ogni esigenza.
+      </p>
+
+      <!-- Stats bar -->
+      <div class="mt-10 inline-grid grid-cols-2 md:grid-cols-4 gap-px bg-white/10 border border-white/10 rounded-2xl overflow-hidden">
+        <div class="flex flex-col items-center gap-3 bg-white/5 hover:bg-white/8 transition-colors px-8 py-5">
+          <svg class="w-7 h-7 text-brand-mid" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>
+          </svg>
+          <div>
+            <div class="text-2xl font-800 text-white leading-none">1200+</div>
+            <div class="text-xs text-white/50 mt-1">Progetti realizzati</div>
+          </div>
+        </div>
+        <div class="flex flex-col items-center gap-3 bg-white/5 hover:bg-white/8 transition-colors px-8 py-5">
+          <svg class="w-7 h-7 text-brand-mid" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/>
+          </svg>
+          <div>
+            <div class="text-2xl font-800 text-white leading-none">15+ anni</div>
+            <div class="text-xs text-white/50 mt-1">Esperienza nel settore</div>
+          </div>
+        </div>
+        <div class="flex flex-col items-center gap-3 bg-white/5 hover:bg-white/8 transition-colors px-8 py-5">
+          <svg class="w-7 h-7 text-brand-mid" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <rect x="2" y="10" width="4" height="11"/><rect x="10" y="6" width="4" height="15"/><rect x="18" y="2" width="4" height="19"/>
+            <path d="M2 6l4-4 4 4 4-4 4 4 4-4"/>
+          </svg>
+          <div>
+            <div class="text-2xl font-800 text-white leading-none">500+</div>
+            <div class="text-xs text-white/50 mt-1">Impianti fotovoltaici</div>
+          </div>
+        </div>
+        <div class="flex flex-col items-center gap-3 bg-white/5 hover:bg-white/8 transition-colors px-8 py-5">
+          <svg class="w-7 h-7 text-brand-mid" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/>
+          </svg>
+          <div>
+            <div class="text-2xl font-800 text-white leading-none">Roma</div>
+            <div class="text-xs text-white/50 mt-1">e centro Italia</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Subtitle under stats -->
+      <p class="mt-8 text-white/40 text-sm tracking-wide">
+        Una selezione dei nostri interventi in <span class="text-brand-mid font-600">diversi ambiti</span>.
+      </p>
+      <div class="mt-3 w-12 h-0.5 bg-brand mx-auto rounded-full"></div>
+    </div>
+  </section>
+
+  <!-- ══════════════ FILTER STRIP ══════════════ -->
+  <div class="sticky top-[65px] z-40 bg-white border-b border-gray-100 shadow-sm">
+    <div class="max-w-7xl mx-auto px-6 py-4">
+      <div class="flex items-center gap-3 overflow-x-auto pb-1 scrollbar-hide" id="filterBar">
+        <button class="filter-btn active flex-shrink-0 flex items-center gap-2 px-5 py-2.5 rounded-full border-2 border-brand text-sm font-600 bg-brand text-white" data-filter="all">
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+          Tutti i progetti
+        </button>
+        <button class="filter-btn flex-shrink-0 flex items-center gap-2 px-5 py-2.5 rounded-full border-2 border-gray-200 text-sm font-600 text-gray-600 bg-white hover:border-brand hover:text-brand" data-filter="ville">
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          Ville full electric
+        </button>
+        <button class="filter-btn flex-shrink-0 flex items-center gap-2 px-5 py-2.5 rounded-full border-2 border-gray-200 text-sm font-600 text-gray-600 bg-white hover:border-brand hover:text-brand" data-filter="radianti">
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 20h20M6 20V8M18 20V8M2 8l10-6 10 6"/></svg>
+          Sistemi radianti
+        </button>
+        <button class="filter-btn flex-shrink-0 flex items-center gap-2 px-5 py-2.5 rounded-full border-2 border-gray-200 text-sm font-600 text-gray-600 bg-white hover:border-brand hover:text-brand" data-filter="fotovoltaico">
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/></svg>
+          Fotovoltaico
+        </button>
+        <button class="filter-btn flex-shrink-0 flex items-center gap-2 px-5 py-2.5 rounded-full border-2 border-gray-200 text-sm font-600 text-gray-600 bg-white hover:border-brand hover:text-brand" data-filter="centrali">
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg>
+          Centrali termiche
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════ PROJECT GRID ══════════════ -->
+  <main class="max-w-7xl mx-auto px-6 py-14">
+
+    <!-- Active category title -->
+    <div class="flex items-center justify-between mb-8 flex-wrap gap-3">
+      <div>
+        <h2 class="text-2xl font-800 text-dark" id="activeTitle">Tutti i progetti</h2>
+        <p class="text-gray-400 text-sm mt-1" id="activeSubtitle">Una selezione dei nostri lavori realizzati</p>
+      </div>
+      <div class="hidden"></div>
+    </div>
+
+    <!-- Grid (popolato da progetti.json) -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-7" id="projectGrid">
+
+      
+
+    </div><!-- /grid -->
+
+    <!-- No results message -->
+    <div id="noResults" class="hidden text-center py-20">
+      <div class="text-5xl mb-4">🔍</div>
+      <h3 class="text-xl font-700 text-dark mb-2">Nessun progetto trovato</h3>
+      <p class="text-gray-400">Prova a selezionare un'altra categoria.</p>
+    </div>
+
+  </main>
+
+  <!-- ══════════════ CTA ══════════════ -->
+  <section class="bg-gradient-to-r from-brand to-brand-mid py-16">
+    <div class="max-w-4xl mx-auto px-6 text-center">
+      <h2 class="text-3xl md:text-4xl font-800 text-white mb-4">Vuoi un impianto come questi?</h2>
+      <p class="text-white/75 text-lg mb-8">Contattaci per un sopralluogo gratuito. Progettiamo la soluzione ideale per la tua casa o azienda.</p>
+      <div class="flex items-center justify-center gap-4 flex-wrap">
+        <a href="index.html#contatti" class="bg-white text-brand font-700 px-8 py-3.5 rounded-full hover:bg-brand-light transition-colors shadow-lg">
+          Richiedi preventivo gratuito
+        </a>
+        <a href="tel:+393881692517" class="border-2 border-white/50 text-white font-600 px-8 py-3.5 rounded-full hover:bg-white/10 transition-colors flex items-center gap-2">
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.68A2 2 0 012 .82h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+          388 169 2517
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════ LIGHTBOX / DETAIL MODAL ══════════════ -->
+  <div id="lightbox" class="fixed inset-0 z-[100] bg-black/80 backdrop-blur-sm items-center justify-center p-4 md:p-8" role="dialog" aria-modal="true">
+    <div class="bg-white rounded-2xl max-w-2xl w-full overflow-hidden shadow-2xl max-h-[90vh] overflow-y-auto" id="lightboxInner">
+      <div class="relative">
+        <img id="lbImg" src="" alt="" class="w-full h-64 md:h-80 object-cover" />
+        <button id="lbClose" class="absolute top-4 right-4 bg-white/90 hover:bg-white w-9 h-9 rounded-full flex items-center justify-center shadow-md transition-colors" aria-label="Chiudi">
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-5">
+          <span id="lbTag" class="text-xs font-700 uppercase tracking-wider text-white/80"></span>
+        </div>
+      </div>
+      <div class="p-6 md:p-8">
+        <div class="flex items-start justify-between gap-4 mb-2">
+          <h2 id="lbTitle" class="text-xl md:text-2xl font-800 text-dark leading-snug"></h2>
+        </div>
+        <div class="flex items-center gap-1.5 text-sm text-gray-400 mb-5">
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span id="lbLocation"></span>
+        </div>
+        <p id="lbDesc" class="text-gray-600 text-sm leading-relaxed mb-6"></p>
+        <div>
+          <h4 class="text-xs font-700 uppercase tracking-wider text-gray-400 mb-3">Impianti realizzati</h4>
+          <ul id="lbFeatures" class="grid grid-cols-1 gap-2"></ul>
+        </div>
+        <div class="mt-8 flex gap-3">
+          <a href="index.html#contatti" class="flex-1 bg-brand text-white text-sm font-700 py-3 rounded-xl text-center hover:bg-brand-dark transition-colors">
+            Richiedi un impianto simile
+          </a>
+          <button id="lbCloseBottom" class="px-5 py-3 border-2 border-gray-200 text-sm font-600 text-gray-500 rounded-xl hover:border-brand hover:text-brand transition-colors">
+            Chiudi
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════ FOOTER ══════════════ -->
+  <footer class="bg-dark py-8 border-t border-white/5">
+    <div class="max-w-7xl mx-auto px-6 flex items-center justify-between flex-wrap gap-4">
+      <a href="index.html">
+        <img src="images/logo-white.svg" alt="Live Impianti S.r.l." class="h-14 w-auto opacity-95 hover:opacity-100 transition-opacity" />
+      </a>
+      <p class="text-white/35 text-sm">© 2025 Live Impianti S.r.l. – Roma (RM), 00144 Roma</p>
+      <div class="flex items-center gap-4">
+        <a href="tel:+393881692517" class="text-white/50 text-sm hover:text-brand transition-colors">388 169 2517</a>
+        <a href="mailto:info@liveimpianti.it" class="text-white/50 text-sm hover:text-brand transition-colors">info@liveimpianti.it</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ══════════════ JAVASCRIPT ══════════════ -->
+  <script src="progetti-data.js"></script>
+  <script src="progetti-loader.js"></script>
+  <script>
+  (() => {
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const noResults = document.getElementById('noResults');
+    const activeTitle = document.getElementById('activeTitle');
+    const activeSubtitle = document.getElementById('activeSubtitle');
+    const grid = document.getElementById('projectGrid');
+
+    const categoryNames = {
+      all: 'Tutti i progetti',
+      ville: 'Ville e abitazioni full electric',
+      radianti: 'Sistemi radianti e climatizzazione invisibile',
+      fotovoltaico: 'Impianti fotovoltaici industriali e pubblici',
+      centrali: 'Centrali termiche e grandi impianti',
+    };
+
+    const catLabels = {
+      ville: 'Ville e abitazioni full electric',
+      radianti: 'Sistemi radianti e climatizzazione invisibile',
+      fotovoltaico: 'Impianti fotovoltaici industriali e pubblici',
+      centrali: 'Centrali termiche e grandi impianti',
+    };
+
+    const lb = document.getElementById('lightbox');
+    const lbImg = document.getElementById('lbImg');
+    const lbTitle = document.getElementById('lbTitle');
+    const lbLocation = document.getElementById('lbLocation');
+    const lbDesc = document.getElementById('lbDesc');
+    const lbFeatures = document.getElementById('lbFeatures');
+    const lbTag = document.getElementById('lbTag');
+    const lbClose = document.getElementById('lbClose');
+    const lbCloseBottom = document.getElementById('lbCloseBottom');
+
+    let currentFilter = 'all';
+
+    function getCards() {
+      return grid.querySelectorAll('.proj-card');
+    }
+
+    function applyFilter(cat) {
+      currentFilter = cat;
+      let visible = 0;
+      const cards = getCards();
+
+      cards.forEach(card => {
+        const match = cat === 'all' || card.dataset.cat === cat;
+        if (match) {
+          card.classList.remove('hidden-card');
+          card.style.display = '';
+          visible++;
+        } else {
+          card.classList.add('hidden-card');
+          setTimeout(() => {
+            if (card.classList.contains('hidden-card')) card.style.display = 'none';
+          }, 320);
+        }
+      });
+
+      noResults.classList.toggle('hidden', visible > 0);
+      activeTitle.textContent = categoryNames[cat] || 'Tutti i progetti';
+      activeSubtitle.textContent = cat === 'all'
+        ? 'Una selezione dei nostri lavori realizzati'
+        : 'Lavori realizzati in questa categoria';
+
+      filterBtns.forEach(btn => {
+        const isActive = btn.dataset.filter === cat;
+        btn.classList.toggle('active', isActive);
+        if (isActive) {
+          btn.classList.add('border-brand', 'bg-brand', 'text-white');
+          btn.classList.remove('border-gray-200', 'text-gray-600', 'bg-white');
+        } else {
+          btn.classList.remove('border-brand', 'bg-brand', 'text-white');
+          btn.classList.add('border-gray-200', 'text-gray-600', 'bg-white');
+        }
+      });
+    }
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => applyFilter(btn.dataset.filter));
+    });
+
+    function openLightbox(card) {
+      lbImg.src = card.dataset.img || '';
+      lbImg.alt = card.dataset.title || '';
+      lbTitle.textContent = card.dataset.title || '';
+      lbLocation.textContent = card.dataset.location || '';
+      lbDesc.textContent = card.dataset.desc || '';
+      lbTag.textContent = catLabels[card.dataset.cat] || '';
+
+      lbFeatures.innerHTML = '';
+      (card.dataset.features || '').split('|').filter(Boolean).forEach(f => {
+        const li = document.createElement('li');
+        li.className = 'feat-item text-sm text-gray-600 flex items-start';
+        li.textContent = f;
+        lbFeatures.appendChild(li);
+      });
+
+      lb.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+      lb.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    function bindCards() {
+      getCards().forEach(card => {
+        card.addEventListener('click', () => openLightbox(card));
+      });
+    }
+
+    lbClose.addEventListener('click', closeLightbox);
+    lbCloseBottom.addEventListener('click', closeLightbox);
+    lb.addEventListener('click', e => { if (e.target === lb) closeLightbox(); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+
+    function openProjectFromUrl() {
+      const params = new URLSearchParams(location.search);
+      const projectId = params.get('id');
+      if (!projectId) return false;
+
+      const card = [...getCards()].find((c) => c.dataset.id === projectId);
+      if (!card) return false;
+
+      applyFilter(card.dataset.cat);
+      setTimeout(() => {
+        card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        openLightbox(card);
+      }, 360);
+      return true;
+    }
+
+    document.addEventListener('DOMContentLoaded', async () => {
+      try {
+        const data = await ProgettiLoader.load();
+        ProgettiLoader.renderProgettiPage(data);
+        bindCards();
+
+        if (!openProjectFromUrl()) {
+          const hash = location.hash.replace('#', '');
+          applyFilter(hash && categoryNames[hash] ? hash : 'all');
+        }
+      } catch (err) {
+        console.error('Errore caricamento progetti:', err);
+        grid.innerHTML = '<p class="col-span-full text-center text-gray-500 py-12">Impossibile caricare i progetti.</p>';
+      }
+    });
+  })();
+  </script>
+
+</body>
+</html>

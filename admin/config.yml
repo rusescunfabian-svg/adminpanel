@@ -1,0 +1,130 @@
+# Decap CMS – Live Impianti
+# Dopo il salvataggio, Netlify ricostruisce il sito automaticamente (con Git collegato).
+
+backend:
+  name: git-gateway
+  branch: main
+
+# Per sviluppo locale: npx decap-server
+local_backend: true
+
+media_folder: images
+public_folder: images
+
+locale: it
+
+slug:
+  encoding: ascii
+  clean_accents: true
+  sanitize_replacement: "-"
+
+collections:
+  - name: catalogo
+    label: Catalogo progetti
+    files:
+      - name: progetti
+        label: Tutti i progetti
+        file: progetti.json
+        fields:
+          - label: Categorie (non modificare gli ID)
+            name: categorie
+            widget: list
+            collapsed: true
+            fields:
+              - { label: ID, name: id, widget: string }
+              - { label: Nome, name: nome, widget: string }
+              - { label: Descrizione, name: descrizione, widget: text }
+              - { label: Banner, name: banner, widget: image, required: false }
+              - { label: Ordine, name: ordine, widget: number, default: 1 }
+
+          - label: Progetti
+            name: progetti
+            widget: list
+            summary: "{{titolo}} — {{categoria}}"
+            fields:
+              - label: ID univoco (slug)
+                name: id
+                widget: string
+                hint: "Solo minuscole e trattini, es. villa-roma-nord"
+                pattern: ['^[a-z0-9-]+$', 'Usa solo lettere minuscole, numeri e trattini']
+
+              - label: Categoria
+                name: categoria
+                widget: select
+                options:
+                  - { label: "Ville full electric", value: ville }
+                  - { label: "Sistemi radianti", value: radianti }
+                  - { label: Fotovoltaico, value: fotovoltaico }
+                  - { label: "Centrali termiche", value: centrali }
+
+              - label: Ordine in categoria
+                name: ordine
+                widget: number
+                default: 1
+                min: 1
+
+              - label: Etichetta (Villa, Hotel, 317 kW…)
+                name: label
+                widget: string
+
+              - label: Stile etichetta Home
+                name: labelStile
+                widget: select
+                required: false
+                options:
+                  - { label: Normale, value: "" }
+                  - { label: Potenza kW, value: kw }
+                  - { label: Pubblico, value: pub }
+
+              - label: Foto principale
+                name: immagine
+                widget: image
+                media_folder: images
+                public_folder: images
+
+              - label: Titolo breve (lista progetti)
+                name: titolo
+                widget: string
+
+              - label: Titolo completo (dettaglio)
+                name: titoloCompleto
+                widget: string
+
+              - label: Titolo Home (opzionale)
+                name: titoloHome
+                widget: string
+                required: false
+
+              - label: Località
+                name: location
+                widget: string
+
+              - label: Descrizione breve
+                name: descrizione
+                widget: text
+
+              - label: Descrizione completa
+                name: descrizioneCompleta
+                widget: text
+
+              - label: Impianti realizzati
+                name: features
+                widget: list
+                field: { label: Voce, name: voce, widget: string }
+
+              - label: Tag in evidenza
+                name: tags
+                widget: list
+                required: false
+                field: { label: Tag, name: tag, widget: string }
+
+              - label: Progetto speciale (badge)
+                name: featured
+                widget: boolean
+                default: false
+
+              - label: Mostra in Home (anteprima prioritaria)
+                name: showOnHome
+                widget: boolean
+                default: false
+                hint: "Tutti i progetti della categoria compaiono nel carosello; questo marca le priorità."

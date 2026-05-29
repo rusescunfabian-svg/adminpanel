@@ -1,0 +1,16 @@
+# Live Impianti – Netlify
+# Publish: cartella root del sito (dove ci sono index.html e progetti.json)
+
+[build]
+  command = "node scripts/sync-progetti-data.js"
+  publish = "."
+
+[[headers]]
+  for = "/admin-progetti.html"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
+
+[[headers]]
+  for = "/admin/*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"

@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 88" role="img" aria-label="Live Impianti S.r.l.">
+
+  <!-- Icon: teal background square -->
+  <rect x="0" y="3" width="82" height="82" rx="13" fill="#00a79e"/>
+
+  <!-- Yellow-green square overlay, slightly rotated -->
+  <rect x="7" y="7" width="68" height="68" rx="9" fill="#cbd000"
+        transform="rotate(-5 41 41)"/>
+
+  <!-- Spiral mark -->
+  <path d="M41,20 C53,20 62,30 62,41 C62,52 52,61 41,61 C30,61 23,52 23,41
+           C23,32 30,26 41,26 C49,26 54,33 54,41 C54,48 48,53 41,53
+           C35,53 34,48 34,41"
+        fill="none" stroke="#0f1923" stroke-width="3.2"
+        stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="41" cy="41" r="2.8" fill="#0f1923"/>
+
+  <!-- LIVE: white on dark background -->
+  <text x="96" y="57"
+        font-family="'Arial Black','Arial',Helvetica,sans-serif"
+        font-weight="900" font-size="52" fill="#ffffff" letter-spacing="-1">LIVE</text>
+
+  <!-- IMPIANTI: brand yellow-green on dark = perfect visibility -->
+  <text x="97" y="85"
+        font-family="'Arial Black','Arial',Helvetica,sans-serif"
+        font-weight="900" font-size="30" fill="#cbd000" letter-spacing="5.5">IMPIANTI</text>
+
+</svg>

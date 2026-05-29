@@ -1,0 +1,37 @@
+════════════════════════════════════════════════════════
+  LIVE IMPIANTI - Istruzioni per le immagini
+════════════════════════════════════════════════════════
+
+Copia i file immagine in questa cartella con i nomi esatti:
+
+  LOGO:
+  ──────────────────────────────────────────────────────
+  logo.png              ← Logo ufficiale Live Impianti S.r.l.
+                          (il file che hai già, sfondo nero o trasparente)
+
+  FOTO CATEGORIE PROGETTI (banner orizzontale, proporzione ~16:5):
+  ──────────────────────────────────────────────────────
+  cat-ville.jpg         ← Foto per "Ville e abitazioni full electric"
+                          (es. una villa moderna, impianto a pavimento, pompa calore)
+
+  cat-radianti.jpg      ← Foto per "Sistemi radianti e climatizzazione invisibile"
+                          (es. interno elegante, soffitto / pavimento radiante)
+
+  cat-fotovoltaico.jpg  ← Foto per "Impianti fotovoltaici industriali e pubblici"
+                          (es. pannelli fotovoltaici su tetto industriale o campo)
+
+  cat-centrali.jpg      ← Foto per "Centrali termiche e grandi impianti"
+                          (es. centrale termica, caldaia Viessmann, locale tecnico)
+
+  FORMATI CONSIGLIATI:
+  ──────────────────────────────────────────────────────
+  • Formato: JPG o PNG
+  • Dimensione consigliata: 1200 × 400 px o superiore
+  • Qualità: 80–90%
+  • Peso massimo consigliato: 500 KB per immagine
+
+  NOTA: Se un'immagine non è presente, il banner mostrerà
+  uno sfondo colorato di fallback. Il sito funziona
+  correttamente anche senza le foto.
+
+════════════════════════════════════════════════════════

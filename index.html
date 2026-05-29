@@ -1,0 +1,654 @@
+﻿<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Live Impianti S.r.l. – Impianti ad Alta Efficienza</title>
+  <meta name="description" content="Live Impianti S.r.l. – Specialisti in impianti full electric, sistemi radianti, fotovoltaico industriale e centrali termiche a Roma e dintorni." />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- ═══════════════════════════ NAVBAR ═══════════════════════════ -->
+  <header class="navbar" id="navbar">
+    <div class="container navbar__inner">
+      <a href="#home" class="navbar__logo">
+        <img src="images/logo.svg" alt="Live Impianti S.r.l." class="navbar__logo-img navbar__logo--dark" />
+      </a>
+      <nav class="navbar__links" id="navLinks">
+        <a href="#servizi">Servizi</a>
+        <a href="progetti.html">Progetti</a>
+        <a href="#perche-noi">Chi siamo</a>
+        <a href="#contatti">Contatti</a>
+      </nav>
+      <a href="#contatti" class="btn btn--primary navbar__cta">Richiedi preventivo</a>
+      <button class="navbar__burger" id="burgerBtn" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ═══════════════════════════ HERO ═══════════════════════════ -->
+  <section class="hero" id="home" aria-label="Home">
+    <div class="hero__bg">
+      <img
+        src="images/home.jpg"
+        class="hero__bg-img"
+        alt="Live Impianti"
+        width="1500"
+        height="1875"
+        decoding="async"
+        fetchpriority="high"
+      />
+      <div class="hero__overlay" aria-hidden="true"></div>
+    </div>
+
+    <div class="hero__wrap">
+      <div class="hero__main">
+        <span class="hero__badge">Efficienza energetica &amp; innovazione</span>
+
+        <h1 class="hero__title">
+          Impianti <span class="hero__title-accent">intelligenti</span><br />
+          per il tuo futuro energetico
+        </h1>
+
+        <p class="hero__subtitle">
+          Progettiamo e installiamo impianti full electric, sistemi radianti, fotovoltaici e centrali termiche
+          ad alta efficienza per privati, aziende e strutture ricettive a Roma e dintorni.
+        </p>
+
+        <div class="hero__actions">
+          <a href="progetti.html" class="hero__btn hero__btn--primary">Scopri i nostri progetti</a>
+          <a href="#contatti" class="hero__btn hero__btn--outline">Contattaci</a>
+        </div>
+      </div>
+
+      <div class="hero__stats">
+        <div class="hero__stat">
+          <span class="hero__stat-num" data-countup data-target="500" data-suffix="+">0</span>
+          <span class="hero__stat-label">Impianti realizzati</span>
+        </div>
+        <div class="hero__stat">
+          <span class="hero__stat-num" data-countup data-target="15" data-suffix="+">0</span>
+          <span class="hero__stat-label">Anni di esperienza</span>
+        </div>
+        <div class="hero__stat">
+          <span class="hero__stat-num" data-countup data-target="100" data-suffix="%">0</span>
+          <span class="hero__stat-label">Soddisfazione cliente</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════ SERVIZI ═══════════════════════════ -->
+  <section class="services" id="servizi">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">I nostri servizi</span>
+        <h2 class="section-title">Soluzioni complete per l'efficienza energetica</h2>
+        <p class="section-desc">Dalla progettazione all'installazione, offriamo un servizio chiavi in mano per ogni tipo di impianto.</p>
+      </div>
+      <div class="services__grid">
+        <div class="service-card">
+          <div class="service-card__icon" style="--icon-color: #00a79e">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+          </div>
+          <h3>Full Electric &amp; Pompe di calore</h3>
+          <p>Abitazioni indipendenti dal gas con pompe di calore aria-acqua ad alta efficienza energetica.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-card__icon" style="--icon-color: #cbd000">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          </div>
+          <h3>Fotovoltaico residenziale e industriale</h3>
+          <p>Impianti fotovoltaici da 6 kW a 500 kW per privati, aziende agricole e strutture pubbliche.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-card__icon" style="--icon-color: #00a79e">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 20h20M4 20V10l8-6 8 6v10"/><path d="M10 20v-6h4v6"/></svg>
+          </div>
+          <h3>Sistemi radianti invisibili</h3>
+          <p>Riscaldamento e raffrescamento a pavimento, soffitto e parete per comfort assoluto e design pulito.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-card__icon" style="--icon-color: #cbd000">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/><path d="M7 8h10M7 12h6"/></svg>
+          </div>
+          <h3>Smart Home &amp; Domotica</h3>
+          <p>Termostati intelligenti, controllo remoto e gestione smart degli impianti per il massimo comfort.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-card__icon" style="--icon-color: #00a79e">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          </div>
+          <h3>VMC e Deumidificazione</h3>
+          <p>Ventilazione meccanica controllata e deumidificazione canalizzata per aria sana e qualità dell'ambiente.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-card__icon" style="--icon-color: #cbd000">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <h3>Centrali termiche &amp; Grandi impianti</h3>
+          <p>Progettazione e realizzazione di centrali termiche ad alta potenza per condomini, alberghi e strutture commerciali.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════ PROGETTI ═══════════════════════════ -->
+  <section class="projects" id="progetti">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Portfolio</span>
+        <h2 class="section-title">I nostri progetti</h2>
+        <p class="section-desc">Ogni progetto &egrave; una soluzione su misura. Esplora le nostre realizzazioni.</p>
+      </div>
+
+      <div class="projects__accordion">
+
+        <!-- ── CATEGORIA 1: Ville e abitazioni full electric ── -->
+        <div class="acc-item" data-category="0">
+          <button class="acc-header" aria-expanded="false">
+            <div class="acc-header__left">
+              <div class="acc-icon acc-icon--1">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+              </div>
+              <div>
+                <h3 class="acc-header__title">Ville e abitazioni full electric</h3>
+              </div>
+            </div>
+            <div class="acc-chevron">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+          </button>
+          <div class="acc-body">
+            <div class="acc-category-banner">
+              <img src="images/cat-ville.jpg" alt="Ville e abitazioni full electric" class="acc-banner-img" style="object-position: center 42%;" onerror="this.parentElement.classList.add('no-img')" />
+              <div class="acc-banner-overlay">
+                <h3>Ville e abitazioni full electric</h3>
+                <p>Abitazioni senza gas, progettate per massima efficienza e autonomia energetica.</p>
+              </div>
+            </div>
+            <div class="acc-projects" data-progetti-cat="ville"></div>
+          </div>
+        </div>
+
+        <!-- ── CATEGORIA 2: Sistemi radianti e climatizzazione invisibile ── -->
+        <div class="acc-item" data-category="1">
+          <button class="acc-header" aria-expanded="false">
+            <div class="acc-header__left">
+              <div class="acc-icon acc-icon--2">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 20h20M6 20V8M18 20V8M2 8l10-6 10 6"/><path d="M10 20v-4h4v4"/></svg>
+              </div>
+              <div>
+                <h3 class="acc-header__title">Sistemi radianti e climatizzazione invisibile</h3>
+              </div>
+            </div>
+            <div class="acc-chevron">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+          </button>
+          <div class="acc-body">
+            <div class="acc-category-banner acc-category-banner--2">
+              <img src="images/cat-radianti-final.jpg" alt="Sistemi radianti e climatizzazione invisibile" class="acc-banner-img" style="object-position: center 34%;" onerror="this.parentElement.classList.add('no-img')" />
+              <div class="acc-banner-overlay">
+                <h3>Sistemi radianti e climatizzazione invisibile</h3>
+                <p>Comfort totale e design pulito: impianti nascosti a pavimento e a soffitto.</p>
+              </div>
+            </div>
+            <div class="acc-projects" data-progetti-cat="radianti"></div>
+          </div>
+        </div>
+
+        <!-- ── CATEGORIA 3: Impianti fotovoltaici industriali e pubblici ── -->
+        <div class="acc-item" data-category="2">
+          <button class="acc-header" aria-expanded="false">
+            <div class="acc-header__left">
+              <div class="acc-icon acc-icon--3">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+              </div>
+              <div>
+                <h3 class="acc-header__title">Impianti fotovoltaici industriali e pubblici</h3>
+              </div>
+            </div>
+            <div class="acc-chevron">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+          </button>
+          <div class="acc-body">
+            <div class="acc-category-banner acc-category-banner--3">
+              <img src="images/cat-fotovoltaico.jpg" alt="Impianti fotovoltaici industriali e pubblici" class="acc-banner-img" onerror="this.parentElement.classList.add('no-img')" />
+              <div class="acc-banner-overlay">
+                <h3>Impianti fotovoltaici industriali e pubblici</h3>
+                <p>Da 40 kW a 500 kW: impianti per aziende, enti pubblici e strutture produttive.</p>
+              </div>
+            </div>
+            <div class="acc-projects" data-progetti-cat="fotovoltaico"></div>
+          </div>
+        </div>
+
+        <!-- ── CATEGORIA 4: Centrali termiche e grandi impianti ── -->
+        <div class="acc-item" data-category="3">
+          <button class="acc-header" aria-expanded="false">
+            <div class="acc-header__left">
+              <div class="acc-icon acc-icon--4">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg>
+              </div>
+              <div>
+                <h3 class="acc-header__title">Centrali termiche e grandi impianti</h3>
+              </div>
+            </div>
+            <div class="acc-chevron">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+          </button>
+          <div class="acc-body">
+            <div class="acc-category-banner acc-category-banner--4">
+              <img src="images/cat-centrali-final.jpg" alt="Centrali termiche e grandi impianti" class="acc-banner-img" style="object-position: center 38%;" onerror="this.parentElement.classList.add('no-img')" />
+              <div class="acc-banner-overlay">
+                <h3>Centrali termiche e grandi impianti</h3>
+                <p>Impianti di riscaldamento e raffrescamento su larga scala per edifici residenziali, commerciali e ricettivi.</p>
+              </div>
+            </div>
+            <div class="acc-projects" data-progetti-cat="centrali"></div>
+          </div>
+        </div>
+
+      </div><!-- /accordion -->
+
+      <div class="projects__cta">
+        <a href="progetti.html" class="btn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+          Vedi tutti i progetti
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════ CHI SIAMO ═══════════════════════════ -->
+  <section class="why-us" id="perche-noi">
+    <div class="container">
+      <div class="why-us__inner">
+
+        <!-- ─ Left: testo + perk ─ -->
+        <div class="why-us__content">
+          <span class="section-tag section-tag--light">Chi siamo</span>
+          <h2 class="section-title section-title--light"><span class="section-title__live">LIVE</span> <span class="section-title__impianti">IMPIANTI</span></h2>
+          <p class="why-us__lead">
+            Siamo una realtà romana specializzata nella progettazione e installazione
+            di impianti ad alta efficienza energetica. Lavoriamo con privati, aziende
+            e strutture ricettive per realizzare soluzioni che coniugano risparmio
+            energetico, comfort e tecnologia avanzata.
+          </p>
+
+          <div class="why-us__perks">
+            <div class="perk">
+              <div class="perk__icon">
+                <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="4 10 8 14 16 6"/></svg>
+              </div>
+              <div>
+                <strong>Progettazione personalizzata</strong>
+                <span>Ogni impianto è progettato sulle esigenze specifiche del cliente</span>
+              </div>
+            </div>
+            <div class="perk">
+              <div class="perk__icon">
+                <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="4 10 8 14 16 6"/></svg>
+              </div>
+              <div>
+                <strong>Marchi premium</strong>
+                <span>Viessmann, Daikin, Bticino e altri brand di eccellenza</span>
+              </div>
+            </div>
+            <div class="perk">
+              <div class="perk__icon">
+                <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="4 10 8 14 16 6"/></svg>
+              </div>
+              <div>
+                <strong>Assistenza continua</strong>
+                <span>Supporto tecnico e manutenzione dopo l'installazione</span>
+              </div>
+            </div>
+            <div class="perk">
+              <div class="perk__icon">
+                <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="4 10 8 14 16 6"/></svg>
+              </div>
+              <div>
+                <strong>Incentivi fiscali</strong>
+                <span>Ti guidiamo nell'accesso al Superbonus e agli incentivi energetici</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- mini stat bar -->
+          <div class="why-us__stats-bar">
+            <div class="wsb-item">
+              <span class="wsb-num">48h</span>
+              <span class="wsb-lbl">primo sopralluogo</span>
+            </div>
+            <div class="wsb-divider"></div>
+            <div class="wsb-item">
+              <span class="wsb-num">5★</span>
+              <span class="wsb-lbl">valutazione media</span>
+            </div>
+            <div class="wsb-divider"></div>
+            <div class="wsb-item">
+              <span class="wsb-num">F‑GAS</span>
+              <span class="wsb-lbl">certificati</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- ─ Right: visual panel ─ -->
+        <div class="why-us__visual">
+
+          <!-- Card principale -->
+          <div class="visual-card">
+            <div class="visual-card__header">
+              <div class="vc-icon-wrap">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+              </div>
+              <div>
+                <p class="vc-overline">Efficienza energetica</p>
+                <p class="vc-subtitle">Risultati certificati</p>
+              </div>
+            </div>
+            <div class="visual-stats">
+              <div class="vs-item">
+                <span class="vs-num">A+++</span>
+                <span class="vs-label">Classe energetica</span>
+              </div>
+              <div class="vs-divider"></div>
+              <div class="vs-item">
+                <span class="vs-num vs-num--accent">-70%</span>
+                <span class="vs-label">Risparmio in bolletta</span>
+              </div>
+              <div class="vs-divider"></div>
+              <div class="vs-item">
+                <span class="vs-num">0 gas</span>
+                <span class="vs-label">Full electric</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Badge pill row -->
+          <div class="visual-pills">
+            <div class="vpill vpill--green">
+              <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M4 2a2 2 0 00-2 2v11a3 3 0 106 0V4a2 2 0 00-2-2H4zm1 14a1 1 0 100-2 1 1 0 000 2zm5-1.757l4.9-4.9a2 2 0 000-2.828L13.485 5.1a2 2 0 00-2.828 0L10 5.757v8.486zM16 18H9.071l6-6H16a2 2 0 012 2v2a2 2 0 01-2 2z" clip-rule="evenodd"/></svg>
+              Zero emissioni
+            </div>
+            <div class="vpill vpill--yellow">
+              <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd"/></svg>
+              Energia solare
+            </div>
+            <div class="vpill vpill--teal">
+              <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z"/></svg>
+              Alta tecnologia
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════ CTA STRIP ═══════════════════════════ -->
+  <section class="cta-strip">
+    <div class="container cta-strip__inner">
+      <div>
+        <h2>Pronto a rendere la tua casa o azienda più efficiente?</h2>
+        <p>Contattaci per un sopralluogo gratuito e un preventivo senza impegno.</p>
+      </div>
+      <a href="#contatti" class="btn btn--white btn--lg">Richiedi un preventivo gratuito</a>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════ CONTATTI ═══════════════════════════ -->
+  <section class="contacts" id="contatti">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Contattaci</span>
+        <h2 class="section-title">Siamo a tua disposizione</h2>
+        <p class="section-desc">Scrivici o chiamaci per qualsiasi informazione. Risponderemo entro 24 ore.</p>
+      </div>
+
+      <div class="contacts__grid">
+        <div class="contacts__info">
+          <div class="contact-item">
+            <div class="contact-item__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.68A2 2 0 012 .82h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+            </div>
+            <div>
+              <span class="contact-item__label">Telefono</span>
+              <a href="tel:+393881692517" class="contact-item__value">388 169 2517</a>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
+            <div>
+              <span class="contact-item__label">Email</span>
+              <a href="mailto:info@liveimpianti.it" class="contact-item__value">info@liveimpianti.it</a>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div>
+              <span class="contact-item__label">Sede</span>
+              <span class="contact-item__value">Roma (RM)<br />00144 Roma (RM)</span>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <div>
+              <span class="contact-item__label">Orari</span>
+              <span class="contact-item__value">Lun – Ven: 8:30 – 18:00<br />Sab: 9:00 – 13:00</span>
+            </div>
+          </div>
+        </div>
+
+        <form class="contacts__form" id="contactForm" novalidate>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="nome">Nome e cognome *</label>
+              <input type="text" id="nome" name="nome" placeholder="Mario Rossi" required />
+            </div>
+            <div class="form-group">
+              <label for="email">Email *</label>
+              <input type="email" id="email" name="email" placeholder="mario@email.it" required />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="telefono">Telefono</label>
+            <input type="tel" id="telefono" name="telefono" placeholder="+39 000 000 0000" />
+          </div>
+          <div class="form-group">
+            <label for="servizio">Tipo di impianto</label>
+            <select id="servizio" name="servizio">
+              <option value="">Seleziona un servizio...</option>
+              <option>Impianto full electric / pompa di calore</option>
+              <option>Impianto fotovoltaico</option>
+              <option>Sistema radiante</option>
+              <option>Centrale termica</option>
+              <option>VMC e deumidificazione</option>
+              <option>Altro</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="messaggio">Messaggio *</label>
+            <textarea id="messaggio" name="messaggio" rows="4" placeholder="Descrivi brevemente il tuo progetto o la tua richiesta..." required></textarea>
+          </div>
+          <div class="form-group form-group--checkbox">
+            <input type="checkbox" id="privacy" name="privacy" required />
+            <label for="privacy">Acconsento al trattamento dei dati personali ai sensi del GDPR *</label>
+          </div>
+          <button type="submit" class="btn btn--primary btn--full">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+            Invia richiesta
+          </button>
+          <div class="form-success" id="formSuccess">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+            Messaggio inviato! Ti contatteremo presto.
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- ── Google Maps + recensioni ── -->
+    <div class="contacts__map-block">
+      <div class="contacts__map-wrap">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11876.636255264604!2d12.370006570098615!3d41.91093919152599!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1325f5c1a5504a77%3A0x716755673350beff!2sLive%20Impianti%20Srl!5e0!3m2!1sit!2sit!4v1779964728030!5m2!1sit!2sit"
+          loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+          allowfullscreen title="Sede Live Impianti S.r.l.">
+        </iframe>
+      </div>
+      <div class="contacts__map-actions">
+        <div class="map-info">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <div>
+            <strong>Live Impianti S.r.l.</strong>
+            <span>Roma (RM), 00144 Roma</span>
+          </div>
+        </div>
+        <a href="https://maps.google.com/?q=Live+Impianti+Srl+Roma" target="_blank" rel="noopener" class="btn btn--primary">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          Apri su Google Maps
+        </a>
+        <a href="https://search.google.com/local/writereview?placeid=ChIJd0pQpJH1JRMRv75TM2dVV3E" target="_blank" rel="noopener" class="btn btn--review">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          Lascia una recensione
+        </a>
+      </div>
+    </div>
+
+  </div>
+  </section>
+
+  <!-- ═══════════════════════════ FOOTER ═══════════════════════════ -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <a href="#home" class="footer__logo-link">
+          <img src="images/logo-white.svg" alt="Live Impianti S.r.l." class="footer__logo-img" />
+        </a>
+        <p class="footer__tagline">Indipendenza e sostenibilit&agrave; energetica</p>
+        <p>Specialisti in impianti ad alta efficienza a Roma e dintorni.<br />Pompe di calore, fotovoltaico, radiante e centrali termiche.</p>
+      </div>
+      <div class="footer__links">
+        <h4>Navigazione</h4>
+        <a href="#servizi">Servizi</a>
+        <a href="#progetti">Progetti</a>
+        <a href="#perche-noi">Chi siamo</a>
+        <a href="#contatti">Contatti</a>
+      </div>
+      <div class="footer__links">
+        <h4>Servizi</h4>
+        <a href="#servizi">Full Electric</a>
+        <a href="#servizi">Fotovoltaico</a>
+        <a href="#servizi">Sistemi radianti</a>
+        <a href="#servizi">Centrali termiche</a>
+      </div>
+      <div class="footer__contact">
+        <h4>Contatti</h4>
+        <a href="tel:+393881692517">388 169 2517</a>
+        <a href="mailto:info@liveimpianti.it">info@liveimpianti.it</a>
+        <span>Roma (RM)<br />00144 Roma (RM)</span>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <div class="container">
+        <span>&copy; 2025 Live Impianti S.r.l. – P.IVA</span>
+        <span>
+          <a href="#">Privacy Policy</a>
+          <a href="#">Cookie Policy</a>
+        </span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Lightbox dettaglio progetto (Home) -->
+  <div id="projLightbox" class="proj-lightbox" role="dialog" aria-modal="true" aria-labelledby="lbTitle">
+    <div class="proj-lightbox__inner" id="lightboxInner">
+      <div class="proj-lightbox__hero">
+        <img id="lbImg" src="" alt="" />
+        <button type="button" id="lbPrev" class="proj-lightbox__nav proj-lightbox__nav--prev" aria-label="Progetto precedente" hidden>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+        </button>
+        <button type="button" id="lbNext" class="proj-lightbox__nav proj-lightbox__nav--next" aria-label="Progetto successivo" hidden>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+        </button>
+        <span id="lbCounter" class="proj-lightbox__counter" hidden></span>
+        <button type="button" id="lbClose" class="proj-lightbox__close" aria-label="Chiudi">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+        <div class="proj-lightbox__tag-wrap">
+          <span id="lbTag" class="proj-lightbox__tag"></span>
+        </div>
+      </div>
+      <div class="proj-lightbox__content">
+        <h2 id="lbTitle" class="proj-lightbox__title"></h2>
+        <p class="proj-lightbox__location">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span id="lbLocation"></span>
+        </p>
+        <p id="lbDesc" class="proj-lightbox__desc"></p>
+        <h3 class="proj-lightbox__features-title">Impianti realizzati</h3>
+        <ul id="lbFeatures" class="proj-lightbox__features"></ul>
+        <div class="proj-lightbox__actions">
+          <a href="#contatti" class="btn btn--primary proj-lightbox__cta-main">Richiedi un impianto simile</a>
+          <button type="button" id="lbCloseBottom" class="proj-lightbox__cta-secondary">Chiudi</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="progetti-data.js"></script>
+  <script src="progetti-loader.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', async () => {
+      try {
+        const data = await ProgettiLoader.load();
+        ProgettiLoader.renderHome(data);
+      } catch (err) {
+        console.error('Errore caricamento progetti:', err);
+      }
+    });
+  </script>
+  <script src="script.js"></script>
+
+<!-- ══════════════ FLOATING CONTACT BUTTONS ══════════════ -->
+<div class="floating-contacts" aria-label="Contatti rapidi">
+
+  <!-- WhatsApp -->
+  <a href="https://wa.me/393401234567" target="_blank" rel="noopener noreferrer"
+     class="floating-btn floating-btn--whatsapp" title="Scrivici su WhatsApp"
+     aria-label="Contattaci su WhatsApp">
+    <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+    </svg>
+    <span class="floating-btn__label">WhatsApp</span>
+  </a>
+
+  <!-- Telefono -->
+  <a href="tel:+390612345678" class="floating-btn floating-btn--phone" title="Chiamaci ora"
+     aria-label="Chiamaci">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 8.81a19.79 19.79 0 01-3.07-8.68A2 2 0 012 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.92z"/>
+    </svg>
+    <span class="floating-btn__label">Chiamaci</span>
+  </a>
+
+</div>
+
+</body>
+</html>
