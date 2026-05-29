@@ -3,27 +3,44 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Gestione progetti – Live Impianti</title>
+  <title>Area riservata · Live Impianti | RF Digital</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="admin-progetti.css" />
 </head>
 <body>
 
+  <header class="rf-bar" id="rfBarGlobal">
+    <a href="https://rfdigital.it" class="rf-bar__brand" target="_blank" rel="noopener noreferrer" title="RF Digital">
+      <div>
+        <span class="rf-bar__name">RF <span>DIGITAL</span></span>
+        <span class="rf-bar__sub">Sviluppo web &amp; gestione contenuti</span>
+      </div>
+    </a>
+    <span class="rf-bar__client">Live Impianti S.r.l.</span>
+  </header>
+
   <div id="loginScreen" class="login">
-    <div class="login__box">
-      <img src="images/logo.svg" alt="Live Impianti" class="login__logo" />
-      <h1>Pannello progetti</h1>
-      <p>Inserisci la password per gestire il catalogo.</p>
-      <input type="password" id="loginPassword" placeholder="Password" autocomplete="current-password" />
-      <button type="button" id="loginBtn" class="btn btn--primary">Entra</button>
-      <p id="loginError" class="login__error" hidden>Password non corretta.</p>
+    <div class="login__main">
+      <div class="login__box">
+        <img src="images/logo.svg" alt="Live Impianti" class="login__client-logo" />
+        <h1>Catalogo progetti</h1>
+        <p>Area riservata — inserisci la password per accedere.</p>
+        <input type="password" id="loginPassword" placeholder="Password" autocomplete="current-password" />
+        <button type="button" id="loginBtn" class="btn btn--primary">Accedi</button>
+        <p id="loginError" class="login__error" hidden>Password non corretta.</p>
+        <p class="login__rf">Pannello realizzato da <strong>RF Digital</strong></p>
+      </div>
     </div>
   </div>
 
   <div id="app" class="app" hidden>
     <header class="app__header">
       <div>
-        <h1>Gestione progetti</h1>
-        <p class="muted">Aggiungi o modifica i lavori. Poi scarica i file e caricali sul sito.</p>
+        <span class="app__badge">Live Impianti S.r.l.</span>
+        <h1>Gestione catalogo progetti</h1>
+        <p class="muted">Aggiungi o modifica i lavori, poi pubblica sul sito (Netlify / GitHub).</p>
       </div>
       <div class="app__header-actions">
         <a href="index.html" class="btn btn--ghost" target="_blank">Vedi sito</a>
@@ -44,6 +61,7 @@
 
     <div class="layout">
       <aside class="sidebar">
+        <p class="sidebar__title">Elenco progetti</p>
         <label class="field">
           <span>Cerca</span>
           <input type="search" id="searchInput" placeholder="Titolo o città…" />
@@ -63,6 +81,7 @@
       </aside>
 
       <main class="form-panel">
+        <h2 class="form-panel__title">Scheda progetto</h2>
         <form id="projectForm">
           <input type="hidden" id="editIndex" value="" />
 
@@ -180,6 +199,11 @@
         <input type="file" id="importFile" accept=".json,application/json" hidden />
       </label>
     </section>
+
+    <footer class="rf-footer">
+      Sviluppato e gestito da <a href="https://rfdigital.it" target="_blank" rel="noopener noreferrer">RF Digital</a>
+      · Area riservata per <strong>Live Impianti S.r.l.</strong>
+    </footer>
   </div>
 
   <script src="progetti-data.js"></script>
